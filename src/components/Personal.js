@@ -1,30 +1,23 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 
-function Personal({personal,setPersonal,setPhoto,setPhotoURL,photo}) {
+function Personal({ personal, setPersonal, setPhoto, setPhotoURL, photo }) {
+  const handleAll = function (e) {
+    setPersonal({ ...personal, [e.target.name]: e.target.value });
+  };
 
-    const handleAll = function (e) {
-        setPersonal({...personal, [e.target.name]:e.target.value})
-      }
+  const onImageChange = (e) => {
+    setPhoto([...e.target.files]);
+  };
 
-      const onImageChange = (e) => {
-        setPhoto([...e.target.files])
-      }
-
-      useEffect(() => {
-        if (photo.length<1) return;
-        const newPhotoURLs = []
-        photo.forEach(img => newPhotoURLs.push(URL.createObjectURL(img)));
-        setPhotoURL(newPhotoURLs);
-
-
-      }, [photo,setPhotoURL])
-      
-
-
+  useEffect(() => {
+    if (photo.length < 1) return;
+    const newPhotoURLs = [];
+    photo.forEach((img) => newPhotoURLs.push(URL.createObjectURL(img)));
+    setPhotoURL(newPhotoURLs);
+  }, [photo, setPhotoURL]);
 
   return (
     <div className="Personal">
- 
       <input
         type="text"
         name="fName"
@@ -46,11 +39,12 @@ function Personal({personal,setPersonal,setPhoto,setPhotoURL,photo}) {
         placeholder="Title"
         onChange={(e) => handleAll(e)}
       ></input>
-  <input
-  type="file"
-  multiple accept ="image/*"
-  onChange={onImageChange}
-  ></input>
+      <input
+        type="file"
+        multiple
+        accept="image/*"
+        onChange={onImageChange}
+      ></input>
       <input
         type="text"
         name="address"
