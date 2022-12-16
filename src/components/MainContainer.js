@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
-import { v4 } from "uuid";
 
 function MainContainer() {
   const [photo, setPhoto] = useState([]);
@@ -16,8 +15,29 @@ function MainContainer() {
     desc: "",
   });
 
-  const [exp, setExp] = useState([]);
-  const [edu, setEdu] = useState([]);
+  const [exp, setExp] = useState([
+{
+  id:'',
+  position:'',
+  company:'',
+  city:'',
+  xpfrom:'',
+  xpto:'',
+}
+
+  ]);
+  const [edu, setEdu] = useState([
+    {
+      id:'',
+      institution:'',
+      eduCity:'',
+      degree:'',
+      subject:'',
+      edufrom:'',
+      eduto:''
+    }
+    
+  ]);
 
   return (
     <div className="MainContainer">
@@ -31,12 +51,18 @@ function MainContainer() {
         photo={photo}
         edu={edu}
         setEdu={setEdu}
+        photoURL={photoURL}
       />
       <RightContainer
         personal={personal}
         setPersonal={setPersonal}
         photoURL={photoURL}
+        exp={exp}
+        edu={edu}
       />
+
+
+
     </div>
   );
 }

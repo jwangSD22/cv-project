@@ -1,10 +1,13 @@
 import React from "react";
+import ExperienceList from "./ExperienceList"
+import EducationList from "./EducationList";
 
-function RightContainer({ personal, photoURL }) {
+
+
+function RightContainer({ personal, photoURL, exp, edu}) {
   return (
     <div className="RightContainer">
-      <document>
-        <page>
+ 
           <div className="rTopBanner">
             <h1>
               {personal.fName} {personal.lName}
@@ -14,26 +17,38 @@ function RightContainer({ personal, photoURL }) {
           <div className="rContainer">
             <div className="rLeftContent">
               <div className="rDescription">
-                Description
-                <p>{personal.desc}</p>
+                {personal.desc}
               </div>
-              <div className="rExperienceContainer">experience</div>
-              <div className="rEducationContainer">education </div>
+              <ExperienceList exp={exp} />
+              <EducationList edu={edu} />
             </div>
-            <div className="rRightColumn">
+            <div className="rRightContent">
               {photoURL.map((imageSrc) => (
-                <img src={imageSrc}></img>
+                
+                <img src={imageSrc} key = {imageSrc.toString()}></img>
               ))}
               personal details
-              <div>{personal.address}</div>
-              <div>{personal.phoneNum}</div>
-              <div>{personal.email}</div>
+              <p></p>
+
+              <div>Address: {personal.address}</div>
+              <p></p>
+              <div>Phone Number: {personal.phoneNum}</div>
+              <p></p>
+
+              <div>Email: {personal.email}</div>
+              <p></p>
+
             </div>
           </div>
-        </page>
-      </document>
+  
     </div>
+
+    
+
+
+
   );
+
 }
 
 export default RightContainer;

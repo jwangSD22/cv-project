@@ -3,7 +3,7 @@ import React from "react";
 function Header() {
   return (
     <div className="Header">
-      <h1>This is the header</h1>
+      <h1>CV CREATOR</h1>
     </div>
   );
 }

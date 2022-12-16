@@ -29,7 +29,7 @@ function Experience({ exp, setExp }) {
   return (
     <div>
       {exp.map((xp) => (
-        <div key={xp.id}>
+        <div className='expEntry' key={xp.id}>
           <input
             type="text"
             name="position"

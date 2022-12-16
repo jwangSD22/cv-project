@@ -1,12 +1,7 @@
 import React from "react";
 
+
 function Education({ edu, setEdu }) {
-  //uni name
-  //city
-  //degree
-  //subject//
-  //from
-  //to
   const handleAll = function (e) {
     for (let i = 0; i < edu.length; i++) {
       if (e.target.id === edu[i].id) {
@@ -26,18 +21,10 @@ function Education({ edu, setEdu }) {
     }
   };
 
-  //   id: newID,
-  //   university:'',
-  //   eduCity:'',
-  //   degree:'',
-  //   subject:'',
-  //   edufrom:'',
-  //   eduto:''
-
   return (
     <div>
       {edu.map((xp) => (
-        <div key={xp.id}>
+        <div className='eduEntry' key={xp.id}>
           <input
             type="text"
             name="institution"

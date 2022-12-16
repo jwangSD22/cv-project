@@ -1,8 +1,10 @@
 import React from "react";
+
 import Personal from "./Personal";
 import Experience from "./Experience";
 import Education from "./Education";
 import { v4 } from "uuid";
+
 
 function LeftContainer({
   personal,
@@ -14,6 +16,7 @@ function LeftContainer({
   setExp,
   edu,
   setEdu,
+  photoURL
 }) {
   const addXp = () => {
     let newID = v4();
@@ -29,6 +32,8 @@ function LeftContainer({
       },
     ]);
   };
+
+
 
   const addEdu = () => {
     let newID = v4();
@@ -63,7 +68,11 @@ function LeftContainer({
       <Education edu={edu} setEdu={setEdu} />
 
       <button onClick={() => addEdu()}>ADD EDUCATION</button>
+      
+
     </div>
+
+    
   );
 }
 
