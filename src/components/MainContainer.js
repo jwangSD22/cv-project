@@ -2,13 +2,15 @@ import React, {useState } from "react";
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
 import ReactToPrint from 'react-to-print';
+import emptyAvatar from '../assets/empty_avatar.png'
+
 
 
 function MainContainer() {
   
   
   const [photo, setPhoto] = useState([]);
-  const [photoURL, setPhotoURL] = useState([]);
+  const [photoURL, setPhotoURL] = useState([emptyAvatar]);
   const [personal, setPersonal] = useState({
     fName: "",
     lName: "",

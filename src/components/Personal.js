@@ -6,10 +6,9 @@ function Personal({ personal, setPersonal, setPhoto, setPhotoURL, photo }) {
   };
 
   const onImageChange = (e) => {
+    
     setPhoto([...e.target.files]);
   };
-
-
 
 
   useEffect(() => {

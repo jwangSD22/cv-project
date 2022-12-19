@@ -6,7 +6,6 @@ import EducationList from "./EducationList";
 
 
 
-
 const RightContainer = React.forwardRef(function ({ personal, photoURL, exp, edu},ref){
   
   return (
@@ -28,7 +27,6 @@ const RightContainer = React.forwardRef(function ({ personal, photoURL, exp, edu
               <EducationList edu={edu} />
             </div>
             <div className="rRightContent">
-              <img className="tempImg" src="./assets/empty_avatar.png" />
               {photoURL.map((imageSrc) => (
                 <img src={imageSrc} key = {imageSrc.toString()}></img>
               ))}
