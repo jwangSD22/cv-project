@@ -9,14 +9,23 @@ function Personal({ personal, setPersonal, setPhoto, setPhotoURL, photo }) {
     setPhoto([...e.target.files]);
   };
 
+
+
+
   useEffect(() => {
     if (photo.length < 1) return;
     const newPhotoURLs = [];
+    
     photo.forEach((img) => newPhotoURLs.push(URL.createObjectURL(img)));
     setPhotoURL(newPhotoURLs);
   }, [photo, setPhotoURL]);
 
+
+
+
+
   return (
+    
     <div className="Personal">
       <input
         type="text"

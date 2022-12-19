@@ -8,9 +8,13 @@ let array = exp.map((xp)=>{
     return(
 <div className="rExpEntry" key={v4()}>
     
+    <div className='rTop'>
     <div className='xpDates'>{xp.xpfrom}-{xp.xpto}</div>
     <div className='xpInfo'>{xp.position}
-    <p>{xp.company},{xp.city}</p></div>
+    <p>{xp.company},{xp.city}</p>
+    </div>
+    </div>
+    <div className='xpDesc'>{xp.xpdesc}</div>
     
    </div>
 )})

@@ -6,6 +6,7 @@ import Education from "./Education";
 import { v4 } from "uuid";
 
 
+
 function LeftContainer({
   personal,
   setPersonal,
@@ -18,6 +19,13 @@ function LeftContainer({
   setEdu,
   photoURL
 }) {
+
+
+
+
+
+
+
   const addXp = () => {
     let newID = v4();
     setExp([
@@ -69,6 +77,7 @@ function LeftContainer({
 
       <button onClick={() => addEdu()}>ADD EDUCATION</button>
       
+
 
     </div>
 

@@ -74,6 +74,17 @@ function Experience({ exp, setExp }) {
             id={xp.id}
           ></input>
 
+<textarea
+            type="text"
+            name="xpdesc"
+            placeholder="Job details"
+            value={xp.xpdesc}
+            onChange={(e) => handleAll(e)}
+            id={xp.id}
+          ></textarea>
+
+
+
           <button id={xp.id} onClick={(e)=>deleteEntry(e.target.id)}>
             DELETE THIS EXP ENTRY
           </button>

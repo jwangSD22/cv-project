@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, {useState } from "react";
 import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
+import ReactToPrint from 'react-to-print';
+
 
 function MainContainer() {
+  
+  
   const [photo, setPhoto] = useState([]);
   const [photoURL, setPhotoURL] = useState([]);
   const [personal, setPersonal] = useState({
@@ -23,6 +27,7 @@ function MainContainer() {
   city:'',
   xpfrom:'',
   xpto:'',
+  xpdesc:''
 }
 
   ]);
@@ -39,8 +44,60 @@ function MainContainer() {
     
   ]);
 
+  /// INPUTTING PRINT //
+  const componentRef = React.useRef(null);
+
+  const onBeforeGetContentResolve = React.useRef(null);
+
+  const [loading, setLoading] = React.useState(false);
+  const [text, setText] = React.useState("old boring text");
+
+  const handleAfterPrint = React.useCallback(() => {
+    console.log("`onAfterPrint` called");
+  }, []);
+
+  const handleBeforePrint = React.useCallback(() => {
+    console.log("`onBeforePrint` called");
+  }, []);
+
+  const handleOnBeforeGetContent = React.useCallback(() => {
+    console.log("`onBeforeGetContent` called");
+    setLoading(true);
+    setText("Loading new text...");
+
+    return new Promise((resolve) => {
+      onBeforeGetContentResolve.current = resolve;
+
+      setTimeout(() => {
+        setLoading(false);
+        setText("New, Updated Text!");
+        resolve();
+      }, 2000);
+    });
+  }, [setLoading, setText]);
+
+  React.useEffect(() => {
+    if (
+      text === "New, Updated Text!" &&
+      typeof onBeforeGetContentResolve.current === "function"
+    ) {
+      onBeforeGetContentResolve.current();
+    }
+  }, [onBeforeGetContentResolve.current, text]);
+
+  const reactToPrintContent = React.useCallback(() => {
+    return componentRef.current;
+  }, [componentRef.current]);
+
+  const reactToPrintTrigger = React.useCallback(() => {
+    return <button>PRINT BUTTON</button>;
+  }, []);
+
+  /////
+
   return (
     <div className="MainContainer">
+      <div className="MainLeft">
       <LeftContainer
         exp={exp}
         setExp={setExp}
@@ -52,19 +109,49 @@ function MainContainer() {
         edu={edu}
         setEdu={setEdu}
         photoURL={photoURL}
-      />
-      <RightContainer
-        personal={personal}
-        setPersonal={setPersonal}
-        photoURL={photoURL}
-        exp={exp}
-        edu={edu}
+
+        content={reactToPrintContent}
+        documentTitle="My CV"
+        onAfterPrint={handleAfterPrint}
+        onBeforeGetContent={handleOnBeforeGetContent}
+        onBeforePrint={handleBeforePrint}
+        removeAfterPrint
+        trigger={reactToPrintTrigger}
       />
 
 
+<ReactToPrint
+        content={reactToPrintContent}
+        documentTitle="My CV"
+        onAfterPrint={handleAfterPrint}
+        onBeforeGetContent={handleOnBeforeGetContent}
+        onBeforePrint={handleBeforePrint}
+        removeAfterPrint
+        trigger={reactToPrintTrigger}
+      />
+
+      </div>
+<div className="MainRight">
+      <RightContainer 
+          personal={personal}
+          setPersonal={setPersonal}
+          photoURL={photoURL}
+          exp={exp}
+          edu={edu}
+          ref={componentRef} text={text} />
+</div>
 
     </div>
+
+
+
+
+
+
+  
   );
 }
+
+
 
 export default MainContainer;

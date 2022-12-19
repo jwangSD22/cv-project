@@ -10,7 +10,8 @@ let array = edu.map((xp)=>{
     
     <div className='eduDates'>{xp.edufrom}-{xp.eduto}</div>
     <div className='eduInfo'>{xp.institution}
-    <p>{xp.degree},{xp.eduCity}</p></div>
+    <p>{xp.degree},{xp.eduCity}</p>
+    </div>
     
    </div>
 )})
