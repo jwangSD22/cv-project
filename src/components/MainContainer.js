@@ -3,6 +3,8 @@ import LeftContainer from "./LeftContainer";
 import RightContainer from "./RightContainer";
 import ReactToPrint from 'react-to-print';
 import emptyAvatar from '../assets/empty_avatar.png'
+import ResetButton from "./ResetButton";
+import ExampleButton from "./ExampleButton";
 
 
 
@@ -130,6 +132,21 @@ function MainContainer() {
         onBeforePrint={handleBeforePrint}
         removeAfterPrint
         trigger={reactToPrintTrigger}
+      />
+
+      <ResetButton
+      setPersonal = {setPersonal}
+      setPhoto = {setPhoto}
+      setPhotoURL = {setPhotoURL}
+      setExp = {setExp}
+      setEdu = {setEdu}
+      />
+            <ExampleButton
+      setPersonal = {setPersonal}
+      setPhoto = {setPhoto}
+      setPhotoURL = {setPhotoURL}
+      setExp = {setExp}
+      setEdu = {setEdu}
       />
 
       </div>

@@ -16,7 +16,7 @@ const RightContainer = React.forwardRef(function ({ personal, photoURL, exp, edu
             <h1>
               {personal.fName} {personal.lName}
             </h1>
-            <h2>{personal.title}</h2>
+            <div className="title">{personal.title}</div>
           </div>
           <div className="rContainer">
             <div className="rLeftContent">
@@ -30,15 +30,15 @@ const RightContainer = React.forwardRef(function ({ personal, photoURL, exp, edu
               {photoURL.map((imageSrc) => (
                 <img src={imageSrc} key = {imageSrc.toString()}></img>
               ))}
-              personal details
+              <h2>Personal details</h2>
               <p></p>
 
-              <div>Address: {personal.address}</div>
+              <div><h3>Address</h3>{personal.address}</div>
               <p></p>
-              <div>Phone Number: {personal.phoneNum}</div>
+              <div><h3>Phone Number</h3>{personal.phoneNum}</div>
               <p></p>
 
-              <div>Email: {personal.email}</div>
+              <div><h3>Email</h3>{personal.email}</div>
               <p></p>
 
             </div>
@@ -49,54 +49,6 @@ const RightContainer = React.forwardRef(function ({ personal, photoURL, exp, edu
   );
    }
 )
-// }
-
-// class RightContainer extends React.PureComponent {
-  
-
-
-//   render(){
-//     const {personal,photoURL,exp,edu} = this.props
-//     return(
-//     <div className="RightContainer">
- 
-//     <div className="rTopBanner">
-//       <h1>
-//         {personal.fName} {personal.lName}
-//       </h1>
-//       <h2>{personal.title}</h2>
-//     </div>
-//     <div className="rContainer">
-//       <div className="rLeftContent">
-//         <div className="rDescription">
-//           {personal.desc}
-//         </div>
-//         <ExperienceList exp={exp} />
-//         <EducationList edu={edu} />
-//       </div>
-//       <div className="rRightContent">
-//         {photoURL.map((imageSrc) => (
-          
-//           <img src={imageSrc} key = {imageSrc.toString()}></img>
-//         ))}
-//         personal details
-//         <p></p>
-
-//         <div>Address: {personal.address}</div>
-//         <p></p>
-//         <div>Phone Number: {personal.phoneNum}</div>
-//         <p></p>
-
-//         <div>Email: {personal.email}</div>
-//         <p></p>
-
-//       </div>
-//     </div>
-
-// </div>
-//     )
-//   }
-//   }
 
 
 export default RightContainer;

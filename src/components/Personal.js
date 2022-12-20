@@ -52,14 +52,13 @@ function Personal({ personal, setPersonal, setPhoto, setPhotoURL, photo }) {
         multiple
         accept="image/*"
         onChange={onImageChange}
-      ></input>
-      <input
-        type="text"
+       ></input>
+            <textarea
         name="address"
         value={personal.address}
         placeholder="Address"
         onChange={(e) => handleAll(e)}
-      ></input>
+      ></textarea>
       <input
         type="text"
         name="phoneNum"

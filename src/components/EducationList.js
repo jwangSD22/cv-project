@@ -8,9 +8,11 @@ let array = edu.map((xp)=>{
     return(
 <div className="rEduEntry" key={v4()}>
     
-    <div className='eduDates'>{xp.edufrom}-{xp.eduto}</div>
-    <div className='eduInfo'>{xp.institution}
-    <p>{xp.degree},{xp.eduCity}</p>
+    <div className='eduDates'><h3>{xp.edufrom}-{xp.eduto}</h3></div>
+    <div className='eduInfo'><h3>{xp.institution} {xp.eduCity}</h3>
+    Degree:{xp.degree}
+    <br></br>
+    Subject:{xp.subject}
     </div>
     
    </div>
@@ -20,7 +22,7 @@ let array = edu.map((xp)=>{
 
   return (
 
-    <div>
+    <div className='expHeader'>
         <h2>Education</h2>
 
  <div className='rEduEntries'>{array}</div>

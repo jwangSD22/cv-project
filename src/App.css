@@ -45,6 +45,24 @@
   }
 }
 
+h1{
+  display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+
+.title{
+margin-bottom: 0.63em;
+font-size: 1.5em;
+font-weight: bold;	
+
+}
+
+
 .Header {
   display: flex;
   flex: 1fr;
@@ -73,11 +91,11 @@ input {
 }
 
 img {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 200px;
 }
 
-.RightContainer {
+.MainRight {
   display: flex;
   flex-direction: column;
   margin-left: 10%;
@@ -87,8 +105,17 @@ img {
   border: 2px solid red;
 }
 
+.RightContainer{
+  display:flex;
+  flex-direction: column;
+}
+
 .rTopBanner {
   background-color: aqua;
+  margin-bottom:20px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rRightColumn {
@@ -115,15 +142,18 @@ img {
   max-height: 500px;
   overflow-wrap: normal;
   word-wrap: break-word;
+  text-align: left;
 }
 
 .rRightContent {
   display: flex;
-  align-items: right;
+  text-align: left;
+  white-space: pre-wrap;
   width: 2in;
   flex-wrap: wrap;
+  height:max-content
 }
-.LeftContainer {
+.MainLeft {
   display: flex;
   flex-direction: column;
   width: 50%;
@@ -134,6 +164,7 @@ img {
 .expEntry {
   display: flex;
   flex-direction: column;
+  
 }
 
 .eduEntry {
@@ -141,27 +172,55 @@ img {
   flex-direction: column;
 }
 
-.rExpEntry {
-  margin: 10px;
-  display: flex;
-  flex-direction: column;
-  width: 5in;
+.rEduEntries{
+  text-align: left;
 }
 
-.rTop {
+.rExpEntries{
+  text-align: left;
+}
+
+.rExpEntry {
   display: flex;
-  justify-content: space-between;
+  width: 6in;
+  margin: 10px;
+  }
+
+  .rExpDates{
+    display:flex;
+    min-width: fit-content;
+    margin-right:50px;
+  }
+
+  .eduDates{
+    min-width: fit-content;
+    margin-right:50px;
+
+
+  }
+
+.expInfo{
+
+  display:flex;
+  width:6in;
+  flex-direction: column;
 }
 
 .rEduEntry {
   display: flex;
   width: 5in;
   margin: 10px;
-  justify-content: space-between;
+  
 }
 
 .xpDesc {
   white-space: pre-wrap;
-  text-align: start;
-  margin-left:100px
+  text-align: left;
+  
 }
+
+.expHeader{
+  text-align: left;
+  margin-left:5px;
+}
+
